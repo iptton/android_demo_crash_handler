@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.iptton.android_demo.crash_handler"
+          android:versionCode="1"
+          android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="4"/>
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher"
+            android:name=".MyApplication">
+        <!--
+            自定义的Application ，用于设置UncaughtExceptionHandler
+            不用Application也可以，只需要所需要的线程处理即可
+        -->
+        <activity android:name="MyActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".CrashActivity" android:process=":crash"/>
+        <!-- process必须用不同的 -->
+    </application>
+</manifest>
